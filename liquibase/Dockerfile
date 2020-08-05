@@ -57,3 +57,5 @@ RUN chmod 777 /opt/perform-migration.sh
 COPY . /home/project/liquibase-container 
 RUN echo "export PATH=$PATH:/liquibase" > ~/.bashrc 
 
+RUN ln -s /opt/perform-migration.sh
+ENTRYPOINT ["/opt/perform-migration.sh"]

@@ -5,12 +5,9 @@ services:
     restart: always
     build: 
       context: ./liquibase
-      dockerfile: Dockerfile_liquibase
+      dockerfile: Dockerfile
     volumes:
       - ./liquibase/:/home/project/liquibase-container
-    ports:
-      - "10000:8003"       
-    command: gunicorn -w 1 -b :8003 --log-level=debug app:app    
     networks:
       - liquibase-container
           
