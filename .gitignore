@@ -1,0 +1,7 @@
+liquibase/liquibase*.properties
+.project
+.pydevproject
+*.pyc
+.settings
+temp/*.*
+temp/restart-ls.sh

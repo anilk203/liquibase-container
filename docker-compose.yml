@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+  liquibase:
+    container_name: liquibase-container
+    restart: always
+    build: 
+      context: ./liquibase
+      dockerfile: Dockerfile_liquibase
+    volumes:
+      - ./liquibase/:/home/project/liquibase-container
+    ports:
+      - "10000:8003"       
+    command: gunicorn -w 1 -b :8003 --log-level=debug app:app    
+    networks:
+      - liquibase-container
+          
+            
+networks:
+  liquibase-container:
+    external: true
